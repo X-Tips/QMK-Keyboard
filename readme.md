@@ -1,4 +1,3 @@
-X.Tips QMK Keyboards
+QMK Keyboards designed by X.Tips.
 
-* Keyboard Maintainer: X.Tips
-* URL: www.umux.com
+URL: www.umux.com
