@@ -1,0 +1,23 @@
+{
+  "name": "X.Tips GaragePad - Nano",
+  "lighting": ["qmk_rgblight"],
+  "matrix": {"rows": 3, "cols": 5},
+  "layouts": {
+      "keymap": [
+         ["0,0","0,1","0,2","0,3","0,4"],
+         ["1,0","1,1","1,2","1,3","1,4"],
+         ["2,0","2,1","2,2","2,3","2,4"]         
+    ]
+  }, 
+  "features": { 
+    "bootmagic": true,
+    "command": false,
+    "mousekey": true,
+    "extrakey": true,
+    "midi": true,
+    "dynamic_keymap": true
+  },
+    "vial": {
+        "midi": "advanced"
+    }
+} 
