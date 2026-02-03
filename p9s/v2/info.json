@@ -1,0 +1,59 @@
+{
+  "keyboard_name": "X.Tips P9S Keyboard",
+  "manufacturer": "umux.com",
+  "url": "http//www.umux.com",
+  "maintainer": "X.Tips",
+  "usb": {
+    "vid": "0x5262",
+    "pid": "0x4E4B",
+    "device_version": "2.0.0"
+  },
+  "features": {
+    "bootmagic": true,
+    "command": false,
+    "console": false,
+    "extrakey": true,
+    "mousekey": true,
+    "rgblight": false,
+    "rgbmatrix": true,
+    "nkro": true
+  },
+	"dynamic_keymap": {
+	    "layer_count": 9
+	}
+	"matrix_pins": {
+	    "direct": [
+	        ["B0", "B1", "A14"],
+	        ["A6", "A9", "B3" ],
+	        ["A4", "F0", "C13"]
+	    ]
+	},
+  "processor": "STM32F072",
+  "bootloader": "stm32-dfu",
+  "ws2812": {
+      "pin": "A13"
+  },
+  "rgb_matrix": {
+      "driver": "ws2812",
+      "layout": [
+      { "flags": 1, "matrix": [0, 1], "x": 62, "y": 26 }
+      ]
+  },
+  "layouts": {
+    "LAYOUT": {
+      "layout": [
+        {"matrix": [0, 0], "x": 0, "y": 0},
+        {"matrix": [0, 1], "x": 1, "y": 0},
+        {"matrix": [0, 2], "x": 2, "y": 0},
+
+        {"matrix": [1, 0], "x": 0, "y": 1},
+        {"matrix": [1, 1], "x": 1, "y": 1},
+        {"matrix": [1, 2], "x": 2, "y": 1},
+
+        {"matrix": [2, 0], "x": 0, "y": 2},
+        {"matrix": [2, 1], "x": 1, "y": 2},
+        {"matrix": [2, 2], "x": 2, "y": 2}
+      ]
+    }
+  }
+}
