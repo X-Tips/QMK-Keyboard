@@ -1,6 +1,6 @@
-QMK Keyboards designed by X.Tips.   URL: www.umux.com
+> QMK Keyboards designed by X.Tips.
+> URL: www.umux.com
 
-==========================================================
 
 # X.Tips · QMK 固件
 
