@@ -1,7 +1,3 @@
-> QMK Keyboards designed by X.Tips.
-> URL: www.umux.com
-
-
 # X.Tips · QMK 固件
 
 > 愿小键盘给你带来大快乐
@@ -34,3 +30,10 @@ Original mini keyboards. Minimal hardware, built to last. Largely unified design
 - Aluminum alloy switch plate & bottom case
 
 **2,700+ orders** on Xianyu in two years, L6 → L7. Word of mouth only.
+
+
+
+> QMK Keyboards designed by X.Tips.
+ 
+> URL: www.umux.com
+
