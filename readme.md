@@ -11,7 +11,7 @@
 - 固件开源，可自主深度定制
 - **铝合金** 铝定铝底三明治或FR4+铝底结构
 
-两年闲鱼 80+产品，**2700+ 单**，500+ 粉丝，L6升L7。不靠营销，只靠口碑。
+两年闲鱼 90+产品，**3000+ 单**，500+ 粉丝，L6升L7。不靠营销，只靠口碑。
 
 https://www.goofish.com/personal?userId=137976734
 
@@ -29,7 +29,7 @@ Original mini keyboards. Minimal hardware, built to last. Largely unified design
 - Open source, fully customizable.
 - Aluminum alloy switch plate & bottom case
 
-**2,700+ orders** on Xianyu in two years, L6 → L7. Word of mouth only.
+**3,000+ orders** on Xianyu in two years, L6 → L7. Word of mouth only.
 
 
 ------------------------------------------------------
