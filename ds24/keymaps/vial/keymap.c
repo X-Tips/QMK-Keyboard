@@ -2,8 +2,8 @@
 #include "leds.c"
 
 enum custom_keycodes {   //must be declared before keymaps[] array
-    L_RBRC = SAFE_RANGE,
-    L_RPRN,
+    KC_LRBRC = SAFE_RANGE,
+    KC_LRPRN,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -14,10 +14,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		LGUI_T(KC_QUOT), LALT_T(KC_SCLN), LSFT_T(KC_COMM),  LCTL_T(KC_DOT), LT(1, KC_SPC), LT(2, KC_ENT)), 
 
 	[1] = LAYOUT( 
-    L_RPRN,  KC_7,    KC_8,    KC_9,    KC_PDOT, KC_PLUS,
-    L_RBRC,  KC_4,    KC_5,    KC_6,    KC_0,    KC_MINS,
-    KC_PIPE, KC_1,    KC_2,    KC_3,    KC_BSPC, KC_PAST,
-    KC_BSLS, KC_UNDS, KC_QUES, KC_EQL,  TO(0),   KC_SLSH),
+    KC_LRPRN,  KC_7,    KC_8,    KC_9,    KC_PDOT, KC_PLUS,
+    KC_LRBRC,  KC_4,    KC_5,    KC_6,    KC_0,    KC_MINS,
+    KC_PIPE,   KC_1,    KC_2,    KC_3,    KC_BSPC, KC_PAST,
+    KC_BSLS,   KC_UNDS, KC_QUES, KC_EQL,  TO(0),   KC_SLSH),
     
 	[2] = LAYOUT( 
 		KC_MS_LEFT, KC_MS_UP,   KC_MS_RIGHT, KC_LEFT,       KC_UP,   KC_RGHT,     
@@ -50,10 +50,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX), 
 
 	[7] = LAYOUT( 
-		QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
 		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
 		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
-		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX), 
+		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT, XXXXXXX), 
 
 	[8] = LAYOUT( 
 		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
@@ -64,12 +64,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case L_RBRC:
+    case KC_LRBRC:
         if (record->event.pressed) {
             SEND_STRING("[]" SS_TAP(X_LEFT));
         }
         break;
-    case L_RPRN:
+    case KC_LRPRN:
         if (record->event.pressed) {
             SEND_STRING("{}" SS_TAP(X_LEFT));
         }
