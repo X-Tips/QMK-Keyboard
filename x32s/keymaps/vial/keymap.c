@@ -21,8 +21,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [1] = LAYOUT( //Number & Punctuation
         XXXXXXX, XXXXXXX, XXXXXXX, KC_7, KC_8, KC_9, KC_PDOT, KC_PPLS,                                       KC_PAST, KC_DLR, KC_COLN, KC_PIPE, KC_GRV, KC_PPLS, KC_UP, KC_PMNS,
         XXXXXXX, XXXXXXX, XXXXXXX, KC_4, KC_5, KC_6, KC_0, KC_PMNS,                                          KC_PSLS, KC_HASH, KC_LCBR, KC_RCBR, KC_SCLN, KC_LEFT, XXXXXXX, KC_RGHT,
-        EH_LEFT, XXXXXXX, XXXXXXX, KC_1, KC_2, KC_3, KC_BSPC, KC_EQL,                                  KC_BSLS, KC_AMPR, KC_LABK, KC_RABK, KC_QUOT, KC_PAST, KC_DOWN, KC_PSLS,
-        EH_RGHT, XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, TO(0), LSFT_T(KC_PENT),                 RAG(KC_6), LGUI(KC_SPC), RAG(KC_8), RAG(KC_9), RAG(KC_0), TO(0), XXXXXXX, XXXXXXX
+        EH_LEFT, XXXXXXX, XXXXXXX, KC_1, KC_2, KC_3, KC_BSPC, KC_EQL,                                  		 KC_BSLS, KC_AMPR, KC_LABK, KC_RABK, KC_QUOT, KC_PAST, KC_DOWN, KC_PSLS,
+        EH_RGHT, XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, TO(0), LSFT_T(KC_PENT),                 		 RAG(KC_6), LGUI(KC_SPC), RAG(KC_8), RAG(KC_9), RAG(KC_0), TO(0), XXXXXXX, XXXXXXX
     ),
 
     [2] = LAYOUT( //Punctuation & Arrow key
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX, RGB_HUI, RGB_MOD, RAG(KC_E), RAG(KC_R), RAG(KC_T),                        MEH(KC_MINS), MEH(KC_EQL), KC_INS, KC_APP, KC_NUM, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, RGB_SAI, RGB_SPI, RAG(KC_D), RAG(KC_F), RAG(KC_G),                        KC_VOLD, KC_VOLU, KC_PAUS, KC_PSCR, KC_SCRL, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, RGB_VAI, RGB_TOG, RAG(KC_C), RAG(KC_V), RAG(KC_B),                        KC_MPRV, KC_MNXT, TO(0), RCS(KC_X), RCS(KC_O), XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, TT(8), KC_LSFT,                               KC_MUTE, KC_MPLY, MO(7), HYPR(KC_9), HYPR(KC_0), XXXXXXX, XXXXXXX, XXXXXXX
+        XXXXXXX, XXXXXXX, XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, TT(8), KC_LSFT,                                KC_MUTE, KC_MPLY, MO(7), HYPR(KC_9), HYPR(KC_0), XXXXXXX, XXXXXXX, XXXXXXX
     ),
 
     [6] = LAYOUT( //App hotkeys
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX, KC_Q, KC_W, KC_E, KC_R, KC_T,                                             KC_PPLS, KC_P7, KC_P8, KC_P9, KC_PDOT, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, KC_A, KC_S, KC_D, KC_F, KC_G,                                             KC_PMNS, KC_P4, KC_P5, KC_P6, KC_P0, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, KC_Z, KC_X, KC_C, KC_V, KC_B,                                             KC_PAST, KC_P1, KC_P2, KC_P3, KC_BSPC, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, KC_RGUI, KC_RALT, KC_RCTL, TO(0), KC_RSFT,                               KC_PSLS, LSFT_T(KC_PENT), KC_ESC, KC_TAB, KC_DEL, XXXXXXX, XXXXXXX, XXXXXXX
+        XXXXXXX, XXXXXXX, XXXXXXX, KC_RGUI, KC_RALT, KC_RCTL, TO(0), KC_RSFT,                                KC_PSLS, LSFT_T(KC_PENT), KC_ESC, KC_TAB, KC_DEL, XXXXXXX, XXXXXXX, XXXXXXX
     ),
 };
 
