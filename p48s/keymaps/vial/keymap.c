@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_RGUI,    KC_RALT, KC_RCTL, LCAG(KC_4), KC_RSFT,                        LCAG(KC_LEFT), LCAG(KC_RGHT),   LCAG(KC_6), LCAG(KC_7), LCAG(KC_8), TO(0), XTIPS),
                                                                               
 	[5] = LAYOUT( //L:Quickly input -- R:Music & Quickly operate                
-		RGB_HUI, RGB_MOD, RAG(KC_E), RAG(KC_R), RAG(KC_T),                        RAG(KC_HOME), RAG(KC_END),      MEH(KC_MINS), MEH(KC_EQL), KC_INS, KC_APP, KC_NUM,
+		RGB_HUI, RGB_MOD, RAG(KC_E), RAG(KC_R), RAG(KC_T),                        RAG(KC_HOME), RAG(KC_END),      C(S(KC_COMM)),  C(S(KC_DOT)),   KC_INS, KC_APP, KC_NUM,
 		RGB_SAI, RGB_SPI, RAG(KC_D), RAG(KC_F), RAG(KC_G),                        RAG(KC_PGUP), RAG(KC_PGDN),     KC_VOLD, KC_VOLU, KC_PAUS, KC_PSCR, KC_SCRL,     
 		RGB_VAI, RGB_TOG, RAG(KC_C), RAG(KC_V), RAG(KC_B),                        RAG(KC_DOWN), RAG(KC_UP),       KC_MPRV, KC_MNXT, TO(0), RCS(KC_X), RCS(KC_O),
 		KC_LGUI, KC_LALT, KC_LCTL, TT(8), KC_LSFT,                                RAG(KC_LEFT), RAG(KC_RGHT),     KC_MUTE, KC_MPLY, MO(7), HYPR(KC_9), HYPR(KC_0)),
