@@ -1,5 +1,6 @@
 #ifndef CONFIG_H
 #define CONFIG_H
+#define DISABLE_JTAG
 
 #define RGB_MATRIX_LED_COUNT 2
 #define RGB_MATRIX_SLEEP true
@@ -17,6 +18,6 @@
 #define BOOTMAGIC_LITE_ROW 0
 #define BOOTMAGIC_LITE_COLUMN 0
 
-#define FORCE_NKRO
+//#define FORCE_NKRO
 
 #endif
