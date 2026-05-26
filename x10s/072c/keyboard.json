@@ -1,7 +1,7 @@
 {
     "keyboard_name": "X.Tips X10s072 Keyboard",
     "manufacturer": "umux.com",
-    "url": "http//www.umux.com",
+    "url": "http://www.umux.com",
     "maintainer": "X.Tips",
     "layouts": {
         "LAYOUT": {
@@ -18,7 +18,7 @@
                 { "matrix": [4, 3], "x": 9,  "y": 0 },
                 { "matrix": [4, 4], "x": 10, "y": 0 },
                 { "matrix": [4, 5], "x": 11, "y": 0 },
-               
+
                 { "matrix": [1, 0], "x": 0,  "y": 1 },
                 { "matrix": [1, 1], "x": 1,  "y": 1 },
                 { "matrix": [1, 2], "x": 2,  "y": 1 },
@@ -31,7 +31,7 @@
                 { "matrix": [5, 3], "x": 9,  "y": 1 },
                 { "matrix": [5, 4], "x": 10, "y": 1 },
                 { "matrix": [5, 5], "x": 11, "y": 1 },
-                
+
                 { "matrix": [2, 0], "x": 0,  "y": 2 },
                 { "matrix": [2, 1], "x": 1,  "y": 2 },
                 { "matrix": [2, 2], "x": 2,  "y": 2 },
