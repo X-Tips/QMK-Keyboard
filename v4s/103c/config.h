@@ -2,7 +2,7 @@
 
 /* RGBLIGHT configuration */
 #define WS2812_DI_PIN A9
-#define RGBLED_NUM 2
+#define RGBLIGHT_LED_COUNT 2
 #define RGBLED_MAP { 1, 0 }
 #define RGBLED_SPLIT { 1, 1 }
 #define RGBLIGHT_LAYERS
@@ -12,7 +12,7 @@
 #define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_CHRISTMAS
 //#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 
-#define FORCE_NKRO
+//#define FORCE_NKRO
 
 #define SPLIT_HAND_PIN B7
 
