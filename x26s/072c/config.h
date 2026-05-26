@@ -3,7 +3,7 @@
 
 #define USB_VBUS_PIN A10
 #define WS2812_DI_PIN A14
-#define SPLIT_HAND_PIN A6
+#define SPLIT_HAND_PIN C13
 #define SERIAL_USART_TX_PIN B6
 #define SERIAL_USART_RX_PIN B7
 
