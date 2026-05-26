@@ -1,5 +1,5 @@
 {
-	  "keyboard_name": "X.Tips V6e.072r Keyboard",
+	  "keyboard_name": "X.Tips V6 Keyboard",
 	  "manufacturer": "umux.com",
 	  "url": "http://www.umux.com",
 	  "maintainer": "X.Tips",
@@ -16,6 +16,8 @@
         "rgblight": true,
         "nkro": true
     },
+    "processor": "STM32F401",
+    "board": "GENERIC_STM32_F401XC",
     "usb": {
 		    "vid": "0x5262",
 		    "pid": "0x4E4B",

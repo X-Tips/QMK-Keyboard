@@ -1,7 +1,7 @@
 {
-	  "keyboard_name": "X.Tips V6 Keyboard",
+	  "keyboard_name": "X.Tips V6e.072c Keyboard",
 	  "manufacturer": "umux.com",
-	  "url": "http//www.umux.com",
+	  "url": "http://www.umux.com",
 	  "maintainer": "X.Tips",
     "bootloader": "stm32-dfu",
     "bootmagic": {
@@ -16,8 +16,6 @@
         "rgblight": true,
         "nkro": true
     },
-    "processor": "STM32F401",
-    "board": "GENERIC_STM32_F401XC",
     "usb": {
 		    "vid": "0x5262",
 		    "pid": "0x4E4B",
@@ -25,17 +23,17 @@
     },
     "matrix_pins": {
         "direct": [
-						["B12", "B13", "B14", "C6", "C9", "C8", null],
-						["B1", "B2", "A10", "B15", "B5", "B3", "C12"],
-						["B0", "C5", "A4", "C0", "C14", "C13", "B8"],
-						["C4", "A7", "A5", "A0", "C3", "C15", "B9"],
-						[null, null, null, "A3", "A2", "A1", null]        
-        ]
+            ["B1", "B2", "B12", "B13", "B4", "B5", null],
+            ["A5", "B0", "B11", "B14", "A15", "B8", "C14"],
+            ["A4", "A6", "B10", "B15", "A13", "B3", "C15"],
+            ["A2", "A3", "A7", "A8", "A9", "B7", "F0"],
+            [null, null, null, "A1", "A0", "F1", null]
+            ]
     },
 	  "encoder": {
 	      "enabled": true,
 	      "rotary": [
-	          {"pin_a": "C10", "pin_b": "C11", "resolution": 4}
+	          {"pin_a": "C13", "pin_b": "B9", "resolution": 4}
 	      ]
 	  },
     "split": {
@@ -43,11 +41,11 @@
         "matrix_pins": {
             "right": {
                 "direct": [
-                    [null, "B12", "B13", "B15", "A8", "C9", "C7"],
-                    ["C6", "B2", "C8", "B14", "C10", "C11", "C12"],
-                    ["C5", "A7", "A4", "C0", "B8", "B5", "B3"],
-                    ["C4", "A5", "A3", "C3", "C15", "C14", "C13"],
-                    [null, "A2", "A1", "A0", null, null, null]
+                [null,"B10", "B14", "B4", "B5", "C13", "C14"],
+                ["B0","B11", "B15", "B3", "B7", "C15", "F0"],
+                ["A7","B12", "A8", "A13", "B8", "F1", "A0"],
+                ["A6","B13", "A9", "A15", "B9", "A2", "A1"],
+                [null,"A5", "A4", "A3", null, null, null]
                 ]
             }
         },
@@ -55,7 +53,7 @@
             "right": {
 					      "enabled": true,
 					      "rotary": [
-					          {"pin_a": "B1", "pin_b": "B0", "resolution": 4}
+					          {"pin_a": "B2", "pin_b": "B1", "resolution": 4}
 					      ]
             }
 			  },
@@ -80,7 +78,7 @@
                 { "matrix": [5, 4], "x": 11, "y": 0 },
                 { "matrix": [5, 5], "x": 12, "y": 0 },
                 { "matrix": [5, 6], "x": 13, "y": 0 },
-                
+
                 { "matrix": [1, 0], "x": 0, "y": 1 },
                 { "matrix": [1, 1], "x": 1, "y": 1 },
                 { "matrix": [1, 2], "x": 2, "y": 1 },
@@ -95,7 +93,7 @@
                 { "matrix": [6, 4], "x": 11, "y": 1 },
                 { "matrix": [6, 5], "x": 12, "y": 1 },
                 { "matrix": [6, 6], "x": 13, "y": 1 },
-                
+
                 { "matrix": [2, 0], "x": 0, "y": 2 },
                 { "matrix": [2, 1], "x": 1, "y": 2 },
                 { "matrix": [2, 2], "x": 2, "y": 2 },
@@ -110,7 +108,7 @@
                 { "matrix": [7, 4], "x": 11, "y": 2 },
                 { "matrix": [7, 5], "x": 12, "y": 2 },
                 { "matrix": [7, 6], "x": 13, "y": 2 },
-                
+
                 { "matrix": [3, 0], "x": 0, "y": 3 },
                 { "matrix": [3, 1], "x": 1, "y": 3 },
                 { "matrix": [3, 2], "x": 2, "y": 3 },
@@ -125,7 +123,7 @@
                 { "matrix": [8, 4], "x": 11, "y": 3 },
                 { "matrix": [8, 5], "x": 12, "y": 3 },
                 { "matrix": [8, 6], "x": 13, "y": 3 },
-                
+
                 { "matrix": [4, 0], "x": 0, "y": 4 },
                 { "matrix": [4, 1], "x": 1, "y": 4 },
                 { "matrix": [4, 2], "x": 2, "y": 4 },
@@ -145,7 +143,7 @@
     },
 		"dynamic_keymap": {
 		    "layer_count": 9
-		}
+		},
     "build": {
         "lto": true
     }

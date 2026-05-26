@@ -1,11 +1,10 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later */
 #pragma once
 
-#define USB_VBUS_PIN A15
-#define WS2812_DI_PIN A6
-#define SPLIT_HAND_PIN B4
+#define USB_VBUS_PIN A10
+#define WS2812_DI_PIN A14
 #define SERIAL_USART_TX_PIN B6
-#define SERIAL_USART_RX_PIN B7
+#define EE_HANDS  // All pins used — define hands this way.
 
 #define RGBLIGHT_LED_COUNT 2
 #define RGBLED_MAP { 1, 0 }
@@ -20,13 +19,13 @@
 
 #undef SPLIT_USB_DETECT
 
-#define SERIAL_USART_FULL_DUPLEX
-#define SERIAL_USART_DRIVER SD1
-#define SERIAL_USART_SPEED 460800
-#define SERIAL_USART_TX_PAL_MODE 0
-#define SERIAL_USART_RX_PAL_MODE 0
-
 #define SPLIT_LAYER_STATE_ENABLE
 #define SPLIT_LED_STATE_ENABLE
 #define SPLIT_WATCHDOG_ENABLE
 #define SPLIT_WATCHDOG_TIMEOUT 3000
+
+#define SERIAL_USART_DRIVER SD1
+#define SERIAL_USART_SINGLE_WIRE
+#define SERIAL_USART_SPEED 460800
+#define SERIAL_USART_TX_PAL_MODE 0
+
