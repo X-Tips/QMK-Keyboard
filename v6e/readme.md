@@ -19,3 +19,8 @@
 **072c: stm32f072c8t6**
 - qmk flash -kb xtips/v6e/072c -km vial -bl dfu-util-split-left
 - qmk flash -kb xtips/v6e/072c -km vial -bl dfu-util-split-right
+
+
+---
+Optional case designed to fit the V6e Split keyboard.
+https://makerworld.com/en/models/2425541-case-for-x-tips-v6-split-keyboard
