@@ -10,6 +10,7 @@
 
 > There are 3 versions that use different MCU.
 > Use the method below to flash the firmware to the left and right sides separately.
+
 **401r: stm32f401rbt6**
 - qmk flash -kb xtips/v6e/401r -km vial
 
