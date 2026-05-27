@@ -1,7 +1,7 @@
 {
-    "keyboard_name": "X.Tips Y45 Keyboard",
+    "keyboard_name": "X.Tips Y45s.072 Keyboard",
     "manufacturer": "umux.com",
-    "url": "http//www.umux.com",
+    "url": "http://www.umux.com",
     "maintainer": "X.Tips",
     "layouts": {
         "LAYOUT": {
@@ -18,7 +18,7 @@
                 { "matrix": [4, 3], "x": 9, "y": 0 },
                 { "matrix": [4, 4], "x": 10,"y": 0 },
                 { "matrix": [4, 5], "x": 11,"y": 0 },
-                
+
                 { "matrix": [1, 0], "x": 0, "y": 1 },
                 { "matrix": [1, 1], "x": 1, "y": 1 },
                 { "matrix": [1, 2], "x": 2, "y": 1 },
@@ -31,7 +31,7 @@
                 { "matrix": [5, 3], "x": 9, "y": 1 },
                 { "matrix": [5, 4], "x": 10,"y": 1 },
                 { "matrix": [5, 5], "x": 11,"y": 1 },
-                
+
                 { "matrix": [2, 0], "x": 0, "y": 2 },
                 { "matrix": [2, 1], "x": 1, "y": 2 },
                 { "matrix": [2, 2], "x": 2, "y": 2 },
@@ -60,14 +60,13 @@
             ]
         }
     },
-    "processor": "STM32F103",
-    "bootloader": "stm32duino",
+    "bootloader": "stm32-dfu",
     "matrix_pins": {
         "direct": [
-            ["B12", "B13", "B14", "B15", "A8", "A10"],
-            ["B2", "B11", "B4", "B5", "A9", "B8"],
-            ["A4", "A2", "A0", "B10", "B0", "A7"], 
-            ["A3", "B1", "A1", "A5", "A6", "B9"]
+            ["B13", "B14", "A15", "B4", "B5", "C15"],
+            ["B12", "A9", "B3", "B9", "C14", "A0"],
+            ["B11", "A8", "A13", "B8", "F1", "A1"],
+            ["B10", "B1", "F0", "A2", "A4", "A3"]
         ]
     },
     "bootmagic": {
@@ -88,26 +87,25 @@
         "matrix_pins": {
             "right": {
                 "direct": [
-		            ["B9", "B12", "B13", "B15", "A8", "A10"],
-		            ["B11", "A7", "B14", "A9", "B10", null],
-		            ["B2", "A2", "A1", "A6", "B0", null], 
-		            ["A4", "B1", "A3", "A0", "A5", null]
+		            ["B0", "B10", "A8", "A9", "B3", "B4"],
+		            ["A2", "B1", "B11", "A15", "B5", null],
+		            ["A1", "B2", "A13", "B9", "B8", null],
+		            ["C15", "F0", "A5", "F1", "C14", null]
                 ]
             }
-        }
-        "soft_serial_pin": "B6",
+        },
         "bootmagic": {
             "matrix": [4, 0]
-        },
+        }
     },
     "usb": {
-        "device_version": "0.0.1",
+        "device_version": "1.0.1",
         "pid": "0x4E4B",
         "vid": "0x5262"
     },
-		"dynamic_keymap": {
-		    "layer_count": 9
-		}
+    "dynamic_keymap": {
+        "layer_count": 9
+    },
     "build": {
         "lto": true
     }
