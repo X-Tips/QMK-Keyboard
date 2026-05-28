@@ -1,7 +1,7 @@
 {
-	  "keyboard_name": "X.Tips X4sr Keyboard",
+	  "keyboard_name": "X.Tips X4e.401 Keyboard",
 	  "manufacturer": "umux.com",
-	  "url": "http//www.umux.com",
+	  "url": "http://www.umux.com",
 	  "maintainer": "X.Tips",
     "bootloader": "stm32-dfu",
     "bootmagic": {
@@ -21,7 +21,7 @@
     "usb": {
 		    "vid": "0x5262",
 		    "pid": "0x4E4B",
-		    "device_version": "1.0.1"
+		    "device_version": "1.0.0"
     },
     "matrix_pins": {
         "direct": [
@@ -31,10 +31,24 @@
             ["A0", "C0", "C15", "C14", "C13"]
         ]
     },
+	  "encoder": {
+	      "enabled": true,
+	      "rotary": [
+	          {"pin_a": "A4", "pin_b": "A6", "resolution": 4}
+	      ]
+	  },
     "split": {
         "bootmagic": {
             "matrix": [4, 2]
         },
+			  "encoder": {
+            "right": {
+					      "enabled": true,
+					      "rotary": [
+					          {"pin_a": "A4", "pin_b": "A6", "resolution": 4}
+					      ]
+            }
+			  },
         "matrix_pins": {
             "right": {
                 "direct": [
@@ -59,7 +73,7 @@
                 { "matrix": [4, 2], "x": 7, "y": 0 },
                 { "matrix": [4, 3], "x": 8, "y": 0 },
                 { "matrix": [4, 4], "x": 9, "y": 0 },
-               
+
                 { "matrix": [1, 0], "x": 0, "y": 1 },
                 { "matrix": [1, 1], "x": 1, "y": 1 },
                 { "matrix": [1, 2], "x": 2, "y": 1 },
@@ -70,7 +84,7 @@
                 { "matrix": [5, 2], "x": 7, "y": 1 },
                 { "matrix": [5, 3], "x": 8, "y": 1 },
                 { "matrix": [5, 4], "x": 9, "y": 1 },
-                
+
                 { "matrix": [2, 0], "x": 0, "y": 2 },
                 { "matrix": [2, 1], "x": 1, "y": 2 },
                 { "matrix": [2, 2], "x": 2, "y": 2 },
@@ -92,13 +106,13 @@
                 { "matrix": [7, 2], "x": 7, "y": 3 },
                 { "matrix": [7, 3], "x": 8, "y": 3 },
                 { "matrix": [7, 4], "x": 9, "y": 3 }
-               
+
             ]
         }
     },
 		"dynamic_keymap": {
 		    "layer_count": 9
-		}
+		},
     "build": {
         "lto": true
     }

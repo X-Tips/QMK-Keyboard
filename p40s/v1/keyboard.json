@@ -1,5 +1,5 @@
 {
-  "keyboard_name": "X.Tips K57v2 Keyboard",
+  "keyboard_name": "X.Tips P40v1 Keyboard",
   "manufacturer": "umux.com",
   "url": "http://www.umux.com",
   "maintainer": "X.Tips",
@@ -18,29 +18,25 @@
     "rgbmatrix": true,
     "nkro": true
   },
-  "dynamic_keymap": {
-    "layer_count": 9
-  },
+	"dynamic_keymap": {
+	    "layer_count": 9
+	}
   "matrix_pins": {
-    "direct": [
-      ["E11", "E12", "E13", "B12", "D10", "D11", "D0", "D1", "D2", "D3", "B4", "E1"],
-      ["C5", "B0", "E10", "E14", "B13", "D13", "D15", "C12", "D4", "B3", "B8", "E2"],
-      ["C4", "B1", "E7", "E9", "E15", "D14", "C11", "D6", "D7", "B5", "C13", null],
-      ["A5", "A6", "A7", "B2", "E8", "D12", "C7", "D5", "B6", "B7", "E3", "C14"],
-      ["A4", "A3", "A1", "A2", "A0", "F9", "C15", "F10", "F1", "C0", null, null]
-    ]
+    "cols": ["B5", "B6", "B7", "B8", "B9", "B10", "B11", "B12", "B13", "B14"],
+    "rows": ["A0", "A1", "A2", "A3"]
   },
+  "diode_direction": "COL2ROW",
   "processor": "STM32F072",
   "bootloader": "stm32-dfu",
   "ws2812": {
-    "pin": "C6"
+      "pin": "A13"
   },
   "rgb_matrix": {
-    "driver": "ws2812",
-    "layout": [
+      "driver": "ws2812",
+      "layout": [
       { "flags": 1, "matrix": [0, 0], "x": 23, "y": 26 },
       { "flags": 1, "matrix": [0, 1], "x": 62, "y": 26 }
-    ]
+      ]
   },
   "layouts": {
     "LAYOUT": {
@@ -55,8 +51,6 @@
         {"matrix": [0, 7], "x": 7, "y": 0},
         {"matrix": [0, 8], "x": 8, "y": 0},
         {"matrix": [0, 9], "x": 9, "y": 0},
-        {"matrix": [0, 10], "x": 10, "y": 0},
-        {"matrix": [0, 11], "x": 11, "y": 0},
 
         {"matrix": [1, 0], "x": 0, "y": 1},
         {"matrix": [1, 1], "x": 1, "y": 1},
@@ -68,8 +62,6 @@
         {"matrix": [1, 7], "x": 7, "y": 1},
         {"matrix": [1, 8], "x": 8, "y": 1},
         {"matrix": [1, 9], "x": 9, "y": 1},
-        {"matrix": [1, 10], "x": 10, "y": 1},
-        {"matrix": [1, 11], "x": 11, "y": 1},
 
         {"matrix": [2, 0], "x": 0, "y": 2},
         {"matrix": [2, 1], "x": 1, "y": 2},
@@ -81,8 +73,6 @@
         {"matrix": [2, 7], "x": 7, "y": 2},
         {"matrix": [2, 8], "x": 8, "y": 2},
         {"matrix": [2, 9], "x": 9, "y": 2},
-        {"matrix": [2, 10], "x": 10, "y": 2},
-        {"matrix": [2, 11], "x": 11, "y": 2},
 
         {"matrix": [3, 0], "x": 0, "y": 3},
         {"matrix": [3, 1], "x": 1, "y": 3},
@@ -94,21 +84,6 @@
         {"matrix": [3, 7], "x": 7, "y": 3},
         {"matrix": [3, 8], "x": 8, "y": 3},
         {"matrix": [3, 9], "x": 9, "y": 3},
-        {"matrix": [3, 10], "x": 10, "y": 3},
-        {"matrix": [3, 11], "x": 11, "y": 3},
-        
-        {"matrix": [4, 0], "x": 0, "y": 4},
-        {"matrix": [4, 1], "x": 1, "y": 4},
-        {"matrix": [4, 2], "x": 2, "y": 4},
-        {"matrix": [4, 3], "x": 3, "y": 4},
-        {"matrix": [4, 4], "x": 4, "y": 4},
-        {"matrix": [4, 5], "x": 5, "y": 4},
-        {"matrix": [4, 6], "x": 6, "y": 4},
-        {"matrix": [4, 7], "x": 7, "y": 4},
-        {"matrix": [4, 8], "x": 8, "y": 4},
-        {"matrix": [4, 9], "x": 9, "y": 4},
-        {"matrix": [4, 10], "x": 10, "y": 4},
-        {"matrix": [4, 11], "x": 11, "y": 4}
       ]
     }
   }

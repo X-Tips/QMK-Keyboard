@@ -1,8 +1,8 @@
 {
-	  "keyboard_name": "X.Tips X30v Keyboard",
-	  "manufacturer": "umux.com",
-	  "url": "http//www.umux.com",
-	  "maintainer": "X.Tips",
+    "keyboard_name": "X.Tips X30v.072r Keyboard",
+    "manufacturer": "umux.com",
+    "url": "http://www.umux.com",
+    "maintainer": "X.Tips",
     "bootloader": "stm32-dfu",
     "bootmagic": {
         "matrix": [0, 0]
@@ -16,21 +16,19 @@
         "rgblight": true,
         "nkro": true
     },
-    "processor": "STM32F401",
-    "board": "GENERIC_STM32_F401XC",
     "usb": {
-		    "vid": "0x5262",
-		    "pid": "0x4E4B",
-		    "device_version": "1.0.1"
+        "vid": "0x5262",
+        "pid": "0x4E4B",
+        "device_version": "1.0.1"
     },
     "matrix_pins": {
         "direct": [
-						["A2", "A1", "A3", "A4", "C4"],
-						["C3", "A0", "A5", "A7", "C5"],
-						["C2", "C15", "B1", "B2", "B0"],
-						["C14", "B5", "C9", "A8", "A13"],
-						["C13", "B4", "A14", "A15", "C10"],
-						["B9", "B3", "D2", "C12", "C11"]
+            ["A2", "A1", "A3", "A4", "C4"],
+            ["C3", "A0", "A5", "A7", "C5"],
+            ["C2", "C15", "B1", "B2", "B0"],
+            ["C14", "B5", "C9", "A8", "A13"],
+            ["C13", "B4", "A14", "A15", "C10"],
+            ["B9", "B3", "D2", "C12", "C11"]
         ]
     },
     "split": {
@@ -38,14 +36,14 @@
         "matrix_pins": {
             "right": {
                 "direct": [
-										["C11", "C12", "D2", "B3", "B9"]
-										["C10", "A15", "A14", "B4", "C13"],
-										["A13", "A8", "C9", "B5", "C14"],
-										["B0", "B2", "B1", "C15", "C2"],
-										["C5", "A7", "A5", "A0", "C3"],
-										["C4", "A4", "A3", "A1", "A2"],
+                    ["C11", "C12", "D2", "B3", "B9"],
+                    ["C10", "A15", "A14", "B4", "C13"],
+                    ["A13", "A8", "C9", "B5", "C14"],
+                    ["B0", "B2", "B1", "C15", "C2"],
+                    ["C5", "A7", "A5", "A0", "C3"],
+                    ["C4", "A4", "A3", "A1", "A2"]
                 ]
-						}
+            }
         },
         "bootmagic": {
             "matrix": [6, 0]
@@ -64,7 +62,7 @@
                 { "matrix": [6, 2], "x": 7, "y": 0},
                 { "matrix": [6, 3], "x": 8, "y": 0},
                 { "matrix": [6, 4], "x": 9, "y": 0},
-                
+
                 { "matrix": [1, 0], "x": 0, "y": 1},
                 { "matrix": [1, 1], "x": 1, "y": 1},
                 { "matrix": [1, 2], "x": 2, "y": 1},
@@ -75,7 +73,7 @@
                 { "matrix": [7, 2], "x": 7, "y": 1},
                 { "matrix": [7, 3], "x": 8, "y": 1},
                 { "matrix": [7, 4], "x": 9, "y": 1},
-                
+
                 { "matrix": [2, 0], "x": 0, "y": 2},
                 { "matrix": [2, 1], "x": 1, "y": 2},
                 { "matrix": [2, 2], "x": 2, "y": 2},
@@ -86,7 +84,7 @@
                 { "matrix": [8, 2], "x": 7, "y": 2},
                 { "matrix": [8, 3], "x": 8, "y": 2},
                 { "matrix": [8, 4], "x": 9, "y": 2},
-                
+
                 { "matrix": [3, 0], "x": 0, "y": 3},
                 { "matrix": [3, 1], "x": 1, "y": 3},
                 { "matrix": [3, 2], "x": 2, "y": 3},
@@ -97,7 +95,7 @@
                 { "matrix": [9, 2], "x": 7, "y": 3},
                 { "matrix": [9, 3], "x": 8, "y": 3},
                 { "matrix": [9, 4], "x": 9, "y": 3},
-                
+
                 { "matrix": [4, 0],  "x": 0, "y": 4},
                 { "matrix": [4, 1],  "x": 1, "y": 4},
                 { "matrix": [4, 2],  "x": 2, "y": 4},
@@ -108,7 +106,7 @@
                 { "matrix": [10, 2], "x": 7, "y": 4},
                 { "matrix": [10, 3], "x": 8, "y": 4},
                 { "matrix": [10, 4], "x": 9, "y": 4},
-                
+
                 { "matrix": [5, 0],  "x": 0, "y": 5},
                 { "matrix": [5, 1],  "x": 1, "y": 5},
                 { "matrix": [5, 2],  "x": 2, "y": 5},
@@ -122,9 +120,9 @@
             ]
         }
     },
-		"dynamic_keymap": {
-		    "layer_count": 9
-		}
+    "dynamic_keymap": {
+        "layer_count": 9
+    },
     "build": {
         "lto": true
     }
