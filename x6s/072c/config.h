@@ -1,9 +1,9 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later */
 #pragma once
 
-#define USB_VBUS_PIN B14
-#define WS2812_DI_PIN B15
-#define SPLIT_HAND_PIN B0
+#define USB_VBUS_PIN A10
+#define WS2812_DI_PIN A14
+#define SPLIT_HAND_PIN C13
 #define SERIAL_USART_TX_PIN B6
 #define SERIAL_USART_RX_PIN B7
 
@@ -30,6 +30,3 @@
 #define SPLIT_LED_STATE_ENABLE
 #define SPLIT_WATCHDOG_ENABLE
 #define SPLIT_WATCHDOG_TIMEOUT 3000
-
-#define WS2812_SPI SPID1
-#define WS2812_SPI_MOSI_PAL_MODE 0 
