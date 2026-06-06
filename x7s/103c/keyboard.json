@@ -1,7 +1,7 @@
 {
-    "keyboard_name": "X.Tips X7s Keyboard",
+    "keyboard_name": "X.Tips X7s.103 Keyboard",
     "manufacturer": "umux.com",
-    "url": "http//www.umux.com",
+    "url": "http://www.umux.com",
     "maintainer": "X.Tips",
     "layouts": {
         "LAYOUT": {
@@ -69,8 +69,8 @@
         "mousekey": true,
         "extrakey": true,
         "encoder": false,
-    		"rgblight": true,
-    		"rgbmatrix": false,
+        "rgblight": true,
+        "rgbmatrix": false,
         "nkro": true
     },
     "split": {
@@ -78,26 +78,25 @@
         "matrix_pins": {
             "right": {
                 "direct": [
-		            ["A8", "B15", "B14", "B13", "B12"],
-		            ["B0", "B1", "B2", "B10", "B11"],
-		            ["A3", "A4", "A5", "A6", "A7"],
-		            [null, null, "A0", "A1", "A2"]
+                    ["A8", "B15", "B14", "B13", "B12"],
+                    ["B0", "B1", "B2", "B10", "B11"],
+                    ["A3", "A4", "A5", "A6", "A7"],
+                    [null, null, "A0", "A1", "A2"]
                 ]
             }
-        }
-        "soft_serial_pin": "B6",
+        },
         "bootmagic": {
             "matrix": [4, 2]
-        },
+        }
     },
     "usb": {
         "device_version": "0.0.1",
         "pid": "0x4E4B",
         "vid": "0x5262"
     },
-		"dynamic_keymap": {
-		    "layer_count": 9
-		}
+    "dynamic_keymap": {
+        "layer_count": 9
+    },
     "build": {
         "lto": true
     }
