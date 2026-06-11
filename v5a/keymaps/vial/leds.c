@@ -1,4 +1,6 @@
-/*Remember to also change the color in keyboard_post_init_kb in boston.c to make the startup color match the layer 0 color */
+/* Remember to also change the color in keyboard_post_init_kb in boston.c to make the startup color match the layer 0 color */
+#include "quantum.h"
+
 const rgblight_segment_t PROGMEM capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 2, HSV_CYAN});
 const rgblight_segment_t PROGMEM layer_1[] = RGBLIGHT_LAYER_SEGMENTS({0, 2, HSV_WHITE});
 const rgblight_segment_t PROGMEM layer_2[] = RGBLIGHT_LAYER_SEGMENTS({0, 2, HSV_WHITE});
@@ -10,19 +12,10 @@ const rgblight_segment_t PROGMEM layer_7[] = RGBLIGHT_LAYER_SEGMENTS({0, 2, HSV_
 const rgblight_segment_t PROGMEM layer_8[] = RGBLIGHT_LAYER_SEGMENTS({0, 2, HSV_PINK});
 
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    capslock_layer,
-    layer_1,
-    layer_2,
-    layer_3,
-    layer_4,
-    layer_5,
-    layer_6,
-    layer_7,
-    layer_8
+    capslock_layer, layer_1, layer_2, layer_3, layer_4, layer_5, layer_6, layer_7, layer_8
 );
 
 void keyboard_post_init_user(void) {
-    // Enable the LED layers
     rgblight_layers = my_rgb_layers;
 }
 
@@ -42,3 +35,6 @@ bool led_update_user(led_t led_state) {
     rgblight_set_layer_state(0, led_state.caps_lock);
     return true;
 }
+
+
+
