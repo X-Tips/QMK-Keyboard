@@ -109,22 +109,34 @@ jobs:
       - name: Pull user keyboard files
         uses: actions/checkout@v4
 
-      - name: Build firmware
-        uses: docker://ghcr.io/qmk/qmk_cli
-        with:
-          entrypoint: /bin/bash
-          args: |
-            -c "
-              cd ${{ env.VIAL_DIR }}
-              qmk setup --yes
-              # 创建软链接指向用户仓库的键盘目录
-              ln -sf ${{ github.workspace }}/p20n keyboards/p20n
-              ln -sf ${{ github.workspace }}/p31n keyboards/p31n
+      - name: Setup keyboard links
+        run: |
+          # 确保 keyboards 目录存在
+          mkdir -p ${{ env.VIAL_DIR }}/keyboards
 
-              KEYBOARD_PATH=$(echo '${{ github.event.inputs.full_keyboard }}' | tr '-' '/')
-              echo 'Building: '${KEYBOARD_PATH}
-              qmk compile -kb \${KEYBOARD_PATH} -km ${{ github.event.inputs.keymap }}
-            "
+          # 创建软链接
+          ln -sf ${{ github.workspace }}/p20n ${{ env.VIAL_DIR }}/keyboards/p20n
+          ln -sf ${{ github.workspace }}/p31n ${{ env.VIAL_DIR }}/keyboards/p31n
+
+          # 验证链接
+          ls -la ${{ env.VIAL_DIR }}/keyboards/
+
+      - name: Build firmware
+        run: |
+          cd ${{ env.VIAL_DIR }}
+
+          # 将 p20n-072c 转换成 p20n/072c
+          KEYBOARD_PATH=$(echo "${{ github.event.inputs.full_keyboard }}" | tr '-' '/')
+          KEYMAP="${{ github.event.inputs.keymap }}"
+
+          echo "Building: $KEYBOARD_PATH with keymap: $KEYMAP"
+
+          # 使用 docker 运行 qmk compile
+          docker run --rm \
+            -v ${{ env.VIAL_DIR }}:/qmk \
+            -w /qmk \
+            ghcr.io/qmk/qmk_cli \
+            qmk compile -kb "$KEYBOARD_PATH" -km "$KEYMAP"
 
       - name: Upload firmware
         uses: actions/upload-artifact@v4
