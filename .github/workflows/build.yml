@@ -18,6 +18,9 @@ on:
         default: 'vial'
         type: string
 
+env:
+  VIAL_DIR: ${{ github.workspace }}/vial-qmk
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,22 +29,22 @@ jobs:
         id: cache-qmk
         uses: actions/cache@v4
         with:
-          path: /home/vial-qmk
+          path: ${{ env.VIAL_DIR }}
           key: vial-qmk-cache
 
       - name: Clone Vial QMK (if cache not found)
         if: steps.cache-qmk.outputs.cache-hit != 'true'
         run: |
-          git clone --depth 1 --branch vial https://github.com/vial-kb/vial-qmk.git /home/vial-qmk
+          git clone --depth 1 --branch vial https://github.com/vial-kb/vial-qmk.git ${{ env.VIAL_DIR }}
 
       - name: Pull user keyboard files
         uses: actions/checkout@v4
         with:
-          path: /home/user-repo
+          path: user-repo
 
       - name: Merge keyboard files
         run: |
-          cp -r /home/user-repo/keyboards/* /home/vial-qmk/keyboards/
+          cp -r user-repo/keyboards/* ${{ env.VIAL_DIR }}/keyboards/
 
       - name: Build firmware
         uses: docker://ghcr.io/qmk/qmk_cli
@@ -49,7 +52,7 @@ jobs:
           entrypoint: /bin/bash
           args: |
             -c "
-              cd /home/vial-qmk
+              cd ${{ env.VIAL_DIR }}
               qmk setup --yes
               KEYBOARD_PATH=$(echo '${{ github.event.inputs.full_keyboard }}' | tr '-' '/')
               echo 'Building: '${KEYBOARD_PATH}
@@ -61,6 +64,6 @@ jobs:
         with:
           name: ${{ github.event.inputs.full_keyboard }}-${{ github.event.inputs.keymap }}-vial
           path: |
-            /home/vial-qmk/*.hex
-            /home/vial-qmk/*.bin
-            /home/vial-qmk/*.uf2
+            ${{ env.VIAL_DIR }}/*.hex
+            ${{ env.VIAL_DIR }}/*.bin
+            ${{ env.VIAL_DIR }}/*.uf2
