@@ -1,0 +1,66 @@
+name: Build QMK Firmware (Vial)
+
+on:
+  workflow_dispatch:
+    inputs:
+      full_keyboard:
+        description: 'Select keyboard version'
+        required: true
+        type: choice
+        options:
+          - x1s-103c 
+          - x2s-v2 
+          - x3s-v2 
+          - x3e-v2 
+      keymap:
+        description: 'Select keymap'
+        required: true
+        default: 'vial'
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restore cached Vial QMK source
+        id: cache-qmk
+        uses: actions/cache@v4
+        with:
+          path: /vial-qmk
+          key: vial-qmk-cache
+
+      - name: Clone Vial QMK (if cache not found)
+        if: steps.cache-qmk.outputs.cache-hit != 'true'
+        run: |
+          git clone --depth 1 --branch vial https://github.com/vial-kb/vial-qmk.git /vial-qmk
+
+      - name: Pull user keyboard files
+        uses: actions/checkout@v4
+        with:
+          path: /user-repo
+
+      - name: Merge keyboard files
+        run: |
+          cp -r /user-repo/keyboards/* /vial-qmk/keyboards/
+
+      - name: Build firmware
+        uses: docker://ghcr.io/qmk/qmk_cli
+        with:
+          entrypoint: /bin/bash
+          args: |
+            -c "
+              cd /vial-qmk
+              qmk setup --yes
+              KEYBOARD_PATH=$(echo '${{ github.event.inputs.full_keyboard }}' | tr '-' '/')
+              echo 'Building: '${KEYBOARD_PATH}
+              qmk compile -kb \${KEYBOARD_PATH} -km ${{ github.event.inputs.keymap }}
+            "
+
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event.inputs.full_keyboard }}-${{ github.event.inputs.keymap }}-vial
+          path: |
+            /vial-qmk/*.hex
+            /vial-qmk/*.bin
+            /vial-qmk/*.uf2
