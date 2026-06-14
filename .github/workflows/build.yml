@@ -12,6 +12,75 @@ on:
           - x2s-v2 
           - x3s-v2 
           - x3e-v2 
+          - minix-103c
+          - minix-072c
+          - v5a-103c
+          - v5a-072c
+          - v6e-401r
+          - v6e-072r
+          - v6e-072c
+          - v6a-072c
+          - x7s-103c
+          - x7s-072c
+          - x10s-103c
+          - x10s-072c
+          - p25s-v2
+          - p25e-v2
+          - p30s-v2
+          - p30e-v2
+          - x30s-401r
+          - x30s-072r
+          - x30s-072c
+          - x30v-401r
+          - x30v-072r
+          - x30v-072c
+          - x32s-072c
+          - k42s-v1
+          - y42s-103c
+          - k45s-v2
+          - y45s-103c
+          - y45s-072c
+          - x4r-2040
+          - x4s-103c
+          - x4s-072c
+          - x4e-103c
+          - x4e-072c
+          - v4s-103c
+          - v4s-072c
+          - v4e-103c
+          - v4e-072c
+          - v4x-072c
+          - p15s-v2
+          - p20s-v2
+          - p20r-2040
+          - p24s-v2
+          - p30r-v2
+          - p34s-v2
+          - p40s-v2
+          - p44s-v2
+          - p48s-v2
+          - p60s-v2
+          - p64s-072v
+          - p64s-072v
+          - x6s-103c
+          - x6s-401r
+          - x6s-072c
+          - x26s-401r
+          - x26s-072c
+          - x26s-072r
+          - x36-v2
+          - p9s-v2
+          - p16s-v2
+          - k57s-v2
+          - ds24-v2
+          - ds30-v2
+          - gbpad-v2
+          - gbpad-v2
+          - mj26s-v2
+          - pb21a-2040
+          - pb21a-072c
+          - yy21a-2040
+          - yy21a-072c
       keymap:
         description: 'Select keymap'
         required: true
@@ -39,12 +108,17 @@ jobs:
 
       - name: Pull user keyboard files
         uses: actions/checkout@v4
-        with:
-          path: user-repo
 
       - name: Merge keyboard files
         run: |
-          cp -r user-repo/keyboards/* ${{ env.VIAL_DIR }}/keyboards/
+          # 检查 keyboards 目录是否存在
+          if [ -d "keyboards" ]; then
+            cp -r keyboards/* ${{ env.VIAL_DIR }}/keyboards/
+          else
+            echo "Error: keyboards directory not found!"
+            ls -la
+            exit 1
+          fi
 
       - name: Build firmware
         uses: docker://ghcr.io/qmk/qmk_cli
