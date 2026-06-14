@@ -61,7 +61,6 @@ on:
           - p48s-v2
           - p60s-v2
           - p64s-072v
-          - p64s-072v
           - x6s-103c
           - x6s-401r
           - x6s-072c
@@ -74,7 +73,6 @@ on:
           - k57s-v2
           - ds24-v2
           - ds30-v2
-          - gbpad-v2
           - gbpad-v2
           - mj26s-v2
           - pb21a-2040
@@ -110,27 +108,51 @@ jobs:
       - name: Pull user keyboard files
         uses: actions/checkout@v4
 
-      - name: Setup keyboard links
+      - name: Link all keyboard folders
         run: |
           mkdir -p ${{ env.VIAL_DIR }}/keyboards
-          ln -sf ${{ github.workspace }}/p20n ${{ env.VIAL_DIR }}/keyboards/p20n
-          ln -sf ${{ github.workspace }}/p31n ${{ env.VIAL_DIR }}/keyboards/p31n
+
+          # 获取键盘名称列表（从 full_keyboard 选项中提取唯一的键盘名）
+          # 例如：x1s-103c -> x1s, minix-103c -> minix
+          KEYBOARD_NAMES=$(echo '${{ github.event.inputs.full_keyboard }}' | tr ' ' '\n' | sed 's/-.*//' | sort -u)
+
+          # 或者直接链接仓库根目录下的所有键盘文件夹（排除系统文件夹）
+          for dir in /__w/QMK-Keyboard/QMK-Keyboard/*/; do
+            dirname=$(basename "$dir")
+            # 跳过系统文件夹
+            if [[ "$dirname" == ".github" ]] || [[ "$dirname" == "vial-qmk" ]] || [[ "$dirname" == "." ]] || [[ "$dirname" == ".." ]]; then
+              continue
+            fi
+            # 检查是否是有效的键盘目录（包含版本子文件夹）
+            if [ -d "$dir" ]; then
+              echo "Linking keyboard: $dirname"
+              ln -sf "$dir" ${{ env.VIAL_DIR }}/keyboards/$dirname
+            fi
+          done
+
+          echo "Linked keyboards:"
           ls -la ${{ env.VIAL_DIR }}/keyboards/
 
       - name: Build firmware
         run: |
           cd ${{ env.VIAL_DIR }}
 
-          # 初始化 QMK（仅首次需要）
           qmk setup --yes || true
 
-          # 转换键盘路径
+          # 将 x1s-103c 转换成 x1s/103c
           KEYBOARD_PATH=$(echo "${{ github.event.inputs.full_keyboard }}" | tr '-' '/')
           KEYMAP="${{ github.event.inputs.keymap }}"
 
           echo "Building: $KEYBOARD_PATH with keymap: $KEYMAP"
 
-          # 编译
+          # 检查键盘是否存在
+          if [ ! -d "keyboards/$KEYBOARD_PATH" ]; then
+            echo "Error: Keyboard '$KEYBOARD_PATH' not found!"
+            echo "Available keyboards:"
+            find keyboards -maxdepth 2 -type d | head -20
+            exit 1
+          fi
+
           qmk compile -kb "$KEYBOARD_PATH" -km "$KEYMAP"
 
       - name: Upload firmware
