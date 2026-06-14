@@ -93,6 +93,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: ghcr.io/qmk/qmk_cli
     steps:
       - name: Restore cached Vial QMK source
         id: cache-qmk
@@ -111,32 +112,26 @@ jobs:
 
       - name: Setup keyboard links
         run: |
-          # 确保 keyboards 目录存在
           mkdir -p ${{ env.VIAL_DIR }}/keyboards
-
-          # 创建软链接
           ln -sf ${{ github.workspace }}/p20n ${{ env.VIAL_DIR }}/keyboards/p20n
           ln -sf ${{ github.workspace }}/p31n ${{ env.VIAL_DIR }}/keyboards/p31n
-
-          # 验证链接
           ls -la ${{ env.VIAL_DIR }}/keyboards/
 
       - name: Build firmware
         run: |
           cd ${{ env.VIAL_DIR }}
 
-          # 将 p20n-072c 转换成 p20n/072c
+          # 初始化 QMK（仅首次需要）
+          qmk setup --yes || true
+
+          # 转换键盘路径
           KEYBOARD_PATH=$(echo "${{ github.event.inputs.full_keyboard }}" | tr '-' '/')
           KEYMAP="${{ github.event.inputs.keymap }}"
 
           echo "Building: $KEYBOARD_PATH with keymap: $KEYMAP"
 
-          # 使用 docker 运行 qmk compile
-          docker run --rm \
-            -v ${{ env.VIAL_DIR }}:/qmk \
-            -w /qmk \
-            ghcr.io/qmk/qmk_cli \
-            qmk compile -kb "$KEYBOARD_PATH" -km "$KEYMAP"
+          # 编译
+          qmk compile -kb "$KEYBOARD_PATH" -km "$KEYMAP"
 
       - name: Upload firmware
         uses: actions/upload-artifact@v4
