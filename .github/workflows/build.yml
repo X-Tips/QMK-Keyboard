@@ -109,17 +109,6 @@ jobs:
       - name: Pull user keyboard files
         uses: actions/checkout@v4
 
-      - name: Merge keyboard files
-        run: |
-          # 检查 keyboards 目录是否存在
-          if [ -d "keyboards" ]; then
-            cp -r keyboards/* ${{ env.VIAL_DIR }}/keyboards/
-          else
-            echo "Error: keyboards directory not found!"
-            ls -la
-            exit 1
-          fi
-
       - name: Build firmware
         uses: docker://ghcr.io/qmk/qmk_cli
         with:
@@ -128,6 +117,10 @@ jobs:
             -c "
               cd ${{ env.VIAL_DIR }}
               qmk setup --yes
+              # 创建软链接指向用户仓库的键盘目录
+              ln -sf ${{ github.workspace }}/p20n keyboards/p20n
+              ln -sf ${{ github.workspace }}/p31n keyboards/p31n
+
               KEYBOARD_PATH=$(echo '${{ github.event.inputs.full_keyboard }}' | tr '-' '/')
               echo 'Building: '${KEYBOARD_PATH}
               qmk compile -kb \${KEYBOARD_PATH} -km ${{ github.event.inputs.keymap }}
