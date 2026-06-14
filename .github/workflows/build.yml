@@ -103,7 +103,7 @@ jobs:
       - name: Clone Vial QMK (if cache not found)
         if: steps.cache-qmk.outputs.cache-hit != 'true'
         run: |
-          git clone --depth 1 --branch vial https://github.com/vial-kb/vial-qmk.git ${{ env.VIAL_DIR }}
+          git clone --depth 1 --branch 0.7.0 https://github.com/vial-kb/vial-qmk.git ${{ env.VIAL_DIR }}
 
       - name: Pull user keyboard files
         uses: actions/checkout@v4
