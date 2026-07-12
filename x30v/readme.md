@@ -1,4 +1,4 @@
-X.Tips X30v Split Keyboard
+# X.Tips X30v Split Keyboard
 
 * Keyboard Maintainer: X.Tips
 * URL: www.umux.com

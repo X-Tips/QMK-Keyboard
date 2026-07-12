@@ -1,11 +1,14 @@
 #pragma once
 
-#define SERIAL_USART_FULL_DUPLEX   // Enable full duplex operation mode.
+#define WS2812_DI_PIN A6
+#define SPLIT_HAND_PIN B8
+#define USB_VBUS_PIN B10
 #define SERIAL_USART_TX_PIN B6     // USART TX pin
 #define SERIAL_USART_RX_PIN B7     // USART RX pin
 
+#define SERIAL_USART_FULL_DUPLEX   // Enable full duplex operation mode.
+
 /* RGBLIGHT configuration */
-#define WS2812_DI_PIN A6
 #define RGBLIGHT_LED_COUNT 2
 #define RGBLED_MAP { 1, 0 }
 #define RGBLED_SPLIT { 1, 1 }
@@ -18,7 +21,9 @@
 
 //#define FORCE_NKRO
 
-#define SPLIT_HAND_PIN B8
-
-#define USB_VBUS_PIN B10
 #undef  SPLIT_USB_DETECT
+
+#define SPLIT_LAYER_STATE_ENABLE
+#define SPLIT_LED_STATE_ENABLE
+#define SPLIT_WATCHDOG_ENABLE
+#define SPLIT_WATCHDOG_TIMEOUT 3000
