@@ -11,4 +11,3 @@
 > Use the method below to flash the firmware to the left and right sides separately.
 **MCU: stm32f072c8t6**
 - qmk flash -kb xtips/v6a/072c -km vial
-- qmk flash -kb xtips/v6a/072c -km vial

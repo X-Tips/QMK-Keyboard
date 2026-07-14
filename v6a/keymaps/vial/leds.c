@@ -9,17 +9,7 @@ const rgblight_segment_t PROGMEM layer_6[] = RGBLIGHT_LAYER_SEGMENTS({0, 2, HSV_
 const rgblight_segment_t PROGMEM layer_7[] = RGBLIGHT_LAYER_SEGMENTS({0, 2, HSV_BLUE});
 const rgblight_segment_t PROGMEM layer_8[] = RGBLIGHT_LAYER_SEGMENTS({0, 2, HSV_PINK});
 
-const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    capslock_layer,
-    layer_1,
-    layer_2,
-    layer_3,
-    layer_4,
-    layer_5,
-    layer_6,
-    layer_7,
-    layer_8
-);
+const rgblight_segment_t *const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(capslock_layer, layer_1, layer_2, layer_3, layer_4, layer_5, layer_6, layer_7, layer_8);
 
 void keyboard_post_init_user(void) {
     // Enable the LED layers
