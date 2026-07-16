@@ -20,7 +20,7 @@
   },
 	"dynamic_keymap": {
 	    "layer_count": 9
-	}
+	},
 	"matrix_pins": {
 	    "direct": [
 	        ["B13", "B14",  "B15",  "C7",  "A8", "A9",  "C11",  "C12", "D2",  "B4",  "B5",  "B6"],
