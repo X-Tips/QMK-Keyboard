@@ -1,5 +1,5 @@
 {
-  "keyboard_name": "X.Tips K62a Keyboard",
+  "keyboard_name": "X.Tips K62a.072c Keyboard",
   "manufacturer": "umux.com",
   "url": "http://www.umux.com",
   "maintainer": "X.Tips",
@@ -16,6 +16,7 @@
     "mousekey": true,
     "rgblight": false,
     "rgbmatrix": true,
+    "midi": true,
     "nkro": true
   },
   "dynamic_keymap": {
