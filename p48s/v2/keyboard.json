@@ -1,7 +1,7 @@
 {
   "keyboard_name": "X.Tips P48v2 Keyboard",
   "manufacturer": "umux.com",
-  "url": "http//www.umux.com",
+  "url": "http://www.umux.com",
   "maintainer": "X.Tips",
   "usb": {
     "vid": "0x5262",
@@ -20,7 +20,7 @@
   },
 	"dynamic_keymap": {
 	    "layer_count": 9
-	}
+	},
 	"matrix_pins": {
 	    "direct": [
 	        ["C6",  "C7",  "C8",  "C9",  "A8",     "A9",  "C10",    "C11", "C12", "D2",  "B3", "B4"],

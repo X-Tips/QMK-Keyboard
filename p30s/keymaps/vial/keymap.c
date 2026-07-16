@@ -8,6 +8,12 @@ enum custom_keycodes {   //must be declared before keymaps[] array
     XTIPS,
 };
 
+void keyboard_pre_init_user(void) {
+    setPinOutput(WS2812_DI_PIN);   // 设置数据线为输出模式
+    writePinLow(WS2812_DI_PIN);    // 拉低电平
+    wait_us(100);       // 保持拉低 100 微秒（远大于 50 微秒的复位要求）
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT( //Alphabet
 		LT(6, KC_Q), KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, 

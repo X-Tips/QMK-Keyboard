@@ -1,12 +1,12 @@
 {
-  "keyboard_name": "X.Tips P25v1 Keyboard",
+  "keyboard_name": "X.Tips P25v2 Keyboard",
   "manufacturer": "umux.com",
-  "url": "http//www.umux.com",
+  "url": "http://www.umux.com",
   "maintainer": "X.Tips",
   "usb": {
     "vid": "0x5262",
     "pid": "0x4E4B",
-    "device_version": "1.0.1"
+    "device_version": "2.0.0"
   },
   "features": {
     "bootmagic": true,
@@ -20,12 +20,16 @@
   },
 	"dynamic_keymap": {
 	    "layer_count": 9
-	}
-  "matrix_pins": {
-    "cols": ["B5", "B6", "B7", "B8", "B9"],
-    "rows": ["A0", "A1", "A2", "B14", "A4"]
-  },
-  "diode_direction": "COL2ROW",
+	},
+	"matrix_pins": {
+	    "direct": [
+	        ["B2", "B11", "A8", "A10", "A14"],
+	        ["B1", "B10", "A9", "A15", "B3"],
+	        ["B0", "A7", "B12", "B15", "B4"],
+	        ["A6", "A4", "B13", "B14", "B5"],
+	        ["A5", "A3", "A2", "A1", "A0"]
+	    ]
+	},
   "processor": "STM32F072",
   "bootloader": "stm32-dfu",
   "ws2812": {
@@ -64,7 +68,7 @@
         {"matrix": [3, 2], "x": 2, "y": 3},
         {"matrix": [3, 3], "x": 3, "y": 3},
         {"matrix": [3, 4], "x": 4, "y": 3},
-        
+
         {"matrix": [4, 0], "x": 0, "y": 4},
         {"matrix": [4, 1], "x": 1, "y": 4},
         {"matrix": [4, 2], "x": 2, "y": 4},

@@ -1,12 +1,12 @@
 {
-  "keyboard_name": "X.Tips P34v1 Keyboard",
+  "keyboard_name": "X.Tips P34v2 Keyboard",
   "manufacturer": "umux.com",
-  "url": "http//www.umux.com",
+  "url": "http://www.umux.com",
   "maintainer": "X.Tips",
   "usb": {
     "vid": "0x5262",
     "pid": "0x4E4B",
-    "device_version": "1.0.1"
+    "device_version": "2.0.1"
   },
   "features": {
     "bootmagic": true,
@@ -20,16 +20,19 @@
   },
 	"dynamic_keymap": {
 	    "layer_count": 9
-	}
-  "matrix_pins": {
-    "cols": ["B5", "B6", "B7", "B8", "B9", "B10", "B11", "B12", "B13", "B14"],
-    "rows": ["A0", "A1", "A2", "A3"]
-  },
-  "diode_direction": "COL2ROW",
+	},
+	"matrix_pins": {
+	    "direct": [
+	        ["A7", "B0", "B1", "B2", "B10", "B14", "B15", "A9", "A10", "A13"],
+	        ["A3", "A4", "A5", "A6", "B11", "B13", "A8", "A14", "A15", "B3"],
+	        ["A0", "A1", "A2", "F1", "C15", "B8", "B6", "B7", "B5", "B4"],
+	        [null, null, null, "F0", "C14", "C13", "B9", null, null, null]
+	    ]
+	},
   "processor": "STM32F072",
   "bootloader": "stm32-dfu",
   "ws2812": {
-      "pin": "A13"
+      "pin": "B12"
   },
   "rgb_matrix": {
       "driver": "ws2812",

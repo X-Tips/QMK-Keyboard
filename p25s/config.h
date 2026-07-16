@@ -18,6 +18,6 @@
 #define BOOTMAGIC_LITE_COLUMN 2
 
 #define USB_POLLING_INTERVAL_MS 1
-#define FORCE_NKRO
+//#define FORCE_NKRO
 
 #endif
