@@ -9,4 +9,4 @@
 //#define VIAL_UNLOCK_COMBO_ROWS { 0, 1 }
 //#define VIAL_UNLOCK_COMBO_COLS { 1, 1 }
 
-#define AUTO_SHIFT_TIMEOUT 300
+// #define AUTO_SHIFT_TIMEOUT 300

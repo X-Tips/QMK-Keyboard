@@ -1,12 +1,12 @@
 {
-  "keyboard_name": "X.Tips P20v2 Keyboard",
+  "keyboard_name": "X.Tips P20v2.2 Keyboard",
   "manufacturer": "umux.com",
-  "url": "http//www.umux.com",
+  "url": "http://www.umux.com",
   "maintainer": "X.Tips",
   "usb": {
     "vid": "0x5262",
     "pid": "0x4E4B",
-    "device_version": "2.0.0"
+    "device_version": "2.2.0"
   },
   "features": {
     "bootmagic": true,
@@ -16,6 +16,7 @@
     "mousekey": true,
     "rgblight": false,
     "rgbmatrix": true,
+    "midi": true,
     "nkro": true
   },
 	"dynamic_keymap": {
