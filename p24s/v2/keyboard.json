@@ -1,7 +1,7 @@
 {
-  "keyboard_name": "X.Tips P24v2 Keyboard",
+  "keyboard_name": "X.Tips DS24 Keyboard",
   "manufacturer": "umux.com",
-  "url": "http//www.umux.com",
+  "url": "http://www.umux.com",
   "maintainer": "X.Tips",
   "usb": {
     "vid": "0x5262",
@@ -20,7 +20,7 @@
   },
 	"dynamic_keymap": {
 	    "layer_count": 9
-	}
+	},
 	"matrix_pins": {
 	    "direct": [
 	        ["B1", "B2", "B10", "B15", "A8", "A10"],
