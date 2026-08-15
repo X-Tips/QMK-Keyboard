@@ -7,9 +7,15 @@ static uint32_t boot_time = 0;
 static bool boot_window = true;
 static uint8_t pending_layer = 0xFF;
 
+void keyboard_pre_init_user(void) {
+    setPinOutput(WS2812_DI_PIN);   // 设置数据线为输出模式
+    writePinLow(WS2812_DI_PIN);    // 拉低电平
+    wait_us(100);       // 保持拉低 100 微秒（远大于 50 微秒的复位要求）
+}
+
 void keyboard_post_init_user(void) {
     boot_time = timer_read32();
-    
+
     if (!eeconfig_is_enabled()) {
         eeconfig_init();
         default_layer_set(1UL << 0);
@@ -17,7 +23,7 @@ void keyboard_post_init_user(void) {
     } else {
         default_layer_set(eeconfig_read_default_layer());
     }
-    
+
     uint8_t default_layer = get_highest_layer(default_layer_state);
     layer_move(default_layer);
 }
@@ -34,6 +40,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             rgblight_toggle();
         }
 
+		if (!readPin(A3)) {
+			layer_move(8);
+			rgblight_enable();
+			return false;
+		}
+
         if (!readPin(A14)) {
 		        pending_layer = 0;
 		        default_layer_set(1UL << pending_layer);
@@ -42,7 +54,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		        return false;
 		    }
 
-/*		    
+/*
         if (!readPin(A15)) {
 		        pending_layer = 1;
 		        default_layer_set(1UL << pending_layer);
@@ -50,7 +62,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             layer_move(pending_layer);
 		        return false;
 		    }
-        
+
         if (!readPin(A0)) {
 		        pending_layer = 2;
 		        default_layer_set(1UL << pending_layer);
@@ -58,13 +70,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             layer_move(pending_layer);
 		        return false;
 		    }
-*/        
+*/
         #ifdef NKRO_ENABLE
-        if (!readPin(B5)) { 
+        if (!readPin(B5)) {
             keymap_config.nkro = false;
             eeconfig_update_keymap(keymap_config.raw);
         }
-        else if (!readPin(A2)) { 
+        else if (!readPin(A2)) {
             keymap_config.nkro = true;
             eeconfig_update_keymap(keymap_config.raw);
         }
@@ -116,6 +128,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[8] = LAYOUT(
 		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG, XXXXXXX,
-		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX)
+		RGB_RMOD, RM_ON,  RM_HUEU, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,
+		TO(0),    RM_OFF, RM_HUED, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX)
 };
