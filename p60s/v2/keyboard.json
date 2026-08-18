@@ -16,6 +16,7 @@
     "mousekey": true,
     "rgblight": false,
     "rgbmatrix": true,
+    "midi": true,
     "nkro": true
   },
   "dynamic_keymap": {
@@ -96,7 +97,7 @@
         {"matrix": [3, 9], "x": 9, "y": 3},
         {"matrix": [3, 10], "x": 10, "y": 3},
         {"matrix": [3, 11], "x": 11, "y": 3},
-        
+
         {"matrix": [4, 0], "x": 0, "y": 4},
         {"matrix": [4, 1], "x": 1, "y": 4},
         {"matrix": [4, 2], "x": 2, "y": 4},
