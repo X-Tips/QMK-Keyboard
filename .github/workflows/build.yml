@@ -1,12 +1,12 @@
 name: Build QMK Firmware (Manual Select)
 on:
-  workflow_dispatch:  # 仅允许手动触发
+  workflow_dispatch:
     inputs:
       keyboard_path:
         description: '要编译的键盘路径 (例如: xtips/p25s/v2)'
         required: true
         type: string
-        default: 'xtips/p25s/v2'  # 设置一个常用型号作为默认值
+        default: 'xtips/p25s/v2'
       keymap:
         description: '键映射名称 (例如: vial 或 default)'
         required: false
@@ -27,21 +27,27 @@ jobs:
       with:
         repository: qmk/qmk_firmware
         submodules: recursive
+        # 显式指定克隆路径，使后续步骤清晰
+        path: qmk_firmware
 
     - name: Checkout your keyboard definitions
       uses: actions/checkout@v4
       with:
-        path: users/${{ github.actor }}
+        # 将您的键盘定义克隆到 QMK 仓库的 keyboards/xtips 下
+        path: qmk_firmware/keyboards/xtips
 
     - name: Build the specified firmware
+      # 在 qmk_firmware 目录下执行命令
+      working-directory: qmk_firmware
       run: |
         echo "开始编译: ${{ github.event.inputs.keyboard_path }} (键映射: ${{ github.event.inputs.keymap }})"
+        # 使用完整路径调用 qmk 命令，并明确指定键盘路径
         qmk compile -kb ${{ github.event.inputs.keyboard_path }} -km ${{ github.event.inputs.keymap }}
-      working-directory: qmk_firmware
 
     - name: Upload firmware
       uses: actions/upload-artifact@v4
       with:
         name: firmware_${{ github.event.inputs.keyboard_path }}
-        path: qmk_firmware/xtips_*.bin qmk_firmware/xtips_*.uf2  # 通配符捕获生成的固件
+        # 固件文件会生成在 qmk_firmware 根目录下
+        path: qmk_firmware/xtips_*.bin qmk_firmware/xtips_*.uf2
         if-no-files-found: warn
