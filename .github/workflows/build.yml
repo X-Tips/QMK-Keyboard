@@ -1,41 +1,22 @@
-name: Build QMK Firmware for All X.Tips Keyboards
+name: Build QMK Firmware (Manual Select)
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:  # 仅允许手动触发
+    inputs:
+      keyboard_path:
+        description: '要编译的键盘路径 (例如: xtips/p25s/v2)'
+        required: true
+        type: string
+        default: 'xtips/p25s/v2'  # 设置一个常用型号作为默认值
+      keymap:
+        description: '键映射名称 (例如: vial 或 default)'
+        required: false
+        type: string
+        default: 'vial'
 
 jobs:
-  # 第一步：扫描仓库，生成编译矩阵
-  prepare:
-    runs-on: ubuntu-latest
-    outputs:
-      build_matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-    - name: Checkout your repository
-      uses: actions/checkout@v4
-
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
-
-    - id: set-matrix
-      run: |
-        # 给脚本执行权限并运行
-        chmod +x .github/scripts/generate_matrix.py
-        echo "matrix=$(python3 .github/scripts/generate_matrix.py)" >> $GITHUB_OUTPUT
-
-  # 第二步：根据矩阵并行编译
   build:
-    needs: prepare
     runs-on: ubuntu-latest
-    container: ghcr.io/qmk/qmk_cli  # 使用QMK官方Docker镜像
-    strategy:
-      fail-fast: false  # 即使某个键盘编译失败，也继续编译其他键盘
-      matrix:
-        target: ${{ fromJson(needs.prepare.outputs.build_matrix) }}
+    container: ghcr.io/qmk/qmk_cli
 
     steps:
     - name: Disable git safe directory checks
@@ -50,19 +31,17 @@ jobs:
     - name: Checkout your keyboard definitions
       uses: actions/checkout@v4
       with:
-        path: users/${{ github.actor }}  # 将您的仓库克隆到 users/你的用户名 下
+        path: users/${{ github.actor }}
 
-    - name: Build firmware
+    - name: Build the specified firmware
       run: |
-        # 构建完整的编译命令
-        KB_PATH="xtips/${{ matrix.target.kb }}/${{ matrix.target.version }}"
-        echo "正在编译: $KB_PATH - 键映射: ${{ matrix.target.keymap }}"
-        qmk compile -kb $KB_PATH -km ${{ matrix.target.keymap }}
+        echo "开始编译: ${{ github.event.inputs.keyboard_path }} (键映射: ${{ github.event.inputs.keymap }})"
+        qmk compile -kb ${{ github.event.inputs.keyboard_path }} -km ${{ github.event.inputs.keymap }}
       working-directory: qmk_firmware
 
     - name: Upload firmware
       uses: actions/upload-artifact@v4
       with:
-        name: firmware_${{ matrix.target.kb }}_${{ matrix.target.version }}
-        path: qmk_firmware/xtips_${{ matrix.target.kb }}_${{ matrix.target.version }}_${{ matrix.target.keymap }}.*
+        name: firmware_${{ github.event.inputs.keyboard_path }}
+        path: qmk_firmware/xtips_*.bin qmk_firmware/xtips_*.uf2  # 通配符捕获生成的固件
         if-no-files-found: warn
