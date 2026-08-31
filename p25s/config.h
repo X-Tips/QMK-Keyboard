@@ -2,7 +2,7 @@
 #define CONFIG_H
 
 #define RGB_MATRIX_LED_COUNT 2
-// #define RGB_MATRIX_SLEEP true
+#define RGB_MATRIX_SLEEP true
 #define RGB_MATRIX_DEFAULT_HUE 255
 #define RGB_MATRIX_DEFAULT_SPD 30
 #define ENABLE_RGB_MATRIX_BREATHING
@@ -20,5 +20,4 @@
 
 #define USB_POLLING_INTERVAL_MS 1
 //#define FORCE_NKRO
-
 #endif
