@@ -1,0 +1,4 @@
+MCU = STM32F072
+BOOTLOADER = stm32-dfu
+
+SERIAL_DRIVER = usart
