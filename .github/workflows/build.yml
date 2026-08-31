@@ -38,8 +38,9 @@ jobs:
       working-directory: qmk_firmware
       run: |
         echo "开始编译: ${{ github.event.inputs.keyboard_path }} (键映射: ${{ github.event.inputs.keymap }})"
-        # 使用宽松编译选项，匹配本地环境
-        qmk compile -kb ${{ github.event.inputs.keyboard_path }} -km ${{ github.event.inputs.keymap }} --compiler-options="-Wno-error"
+        # 通过环境变量 EXTRAFLAGS 传递编译选项
+        export EXTRAFLAGS="-Wno-error"
+        qmk compile -kb ${{ github.event.inputs.keyboard_path }} -km ${{ github.event.inputs.keymap }}
 
     - name: Upload firmware
       uses: actions/upload-artifact@v4
