@@ -1,6 +1,11 @@
 #include QMK_KEYBOARD_H
 #include "leds.c"
 
+// 键位码定义
+enum custom_keycodes {
+    RGBRST = SAFE_RANGE,
+};
+
 // Plug in keyboard, press top-right key within 2 seconds to toggle RGB light or NKRO. 2025-12-26
 #include "timer.h"
 
@@ -22,7 +27,9 @@ void matrix_scan_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (boot_window && record->event.pressed) {
+    if (!record->event.pressed) return true;
+
+    if (boot_window) {
         // if (keycode == KC_VOLU) {
         if (!readPin(A15)) {
             rgblight_toggle();
@@ -44,6 +51,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             eeconfig_update_keymap(keymap_config.raw);
         }
         #endif
+    }
+
+    switch (keycode) {
+        case RGBRST:
+            eeconfig_update_rgb_matrix_default();
+            return false;
     }
     return true;
 }
@@ -101,6 +114,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[8] = LAYOUT(
 		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 		XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-		RGB_RMOD, RM_ON,  RM_HUEU, RGB_SAI, RGB_VAI,
-		TO(0),    RM_OFF, RM_HUED, RGB_SAD, RGB_VAD)
+		RGB_RMOD,RGB_TOG, RM_HUEU, RGB_SAI, RGB_VAI,
+		TO(0),   RGBRST,  RM_HUED, RGB_SAD, RGB_VAD)
 };
