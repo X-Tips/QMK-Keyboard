@@ -1,1 +1,3 @@
 RGB_MATRIX_ENABLE = yes
+OPT = s
+LTO_ENABLE = yes
