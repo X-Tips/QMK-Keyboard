@@ -1,4 +1,4 @@
-X.Tips V2 Split Keyboard
+X.Tips Xilakka V2 Split Keyboard
 
 * Keyboard Maintainer: X.Tips
 * URL: www.umux.com
