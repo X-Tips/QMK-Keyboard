@@ -19,5 +19,5 @@
 #define BOOTMAGIC_LITE_COLUMN 0
 
 //#define FORCE_NKRO
-
+#define MIDI_ADVANCED
 #endif
