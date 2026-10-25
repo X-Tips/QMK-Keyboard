@@ -13,9 +13,7 @@ static bool boot_window = true;
 static uint8_t pending_layer = 0xFF;
 
 void keyboard_pre_init_user(void) {
-    setPinOutput(WS2812_DI_PIN);   // 设置数据线为输出模式
-    writePinLow(WS2812_DI_PIN);    // 拉低电平
-    wait_us(100);       // 保持拉低 100 微秒（远大于 50 微秒的复位要求）
+    setPinOutput(WS2812_DI_PIN); writePinLow(WS2812_DI_PIN); wait_us(100); //复位引脚50以上，避免首灯异常亮绿
 }
 
 void keyboard_post_init_user(void) {

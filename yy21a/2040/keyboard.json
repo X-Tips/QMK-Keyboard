@@ -50,6 +50,7 @@
         "encoder": false,
         "rgblight": true,
         "rgbmatrix": false,
+        "midi": true,
         "nkro": true
     },
     "usb": {

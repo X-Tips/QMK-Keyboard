@@ -2,13 +2,14 @@
 #include <stdio.h>
 #include "leds.c"
 
-
 enum custom_keycodes {   //must be declared before keymaps[] array
     CUT2HOME = SAFE_RANGE,
-    CUT2END,
-    CUTLINE,
-    XTIPS,
+    CUT2END, CUTLINE, XTIPS,
 };
+
+void keyboard_pre_init_user(void) {
+    setPinOutput(WS2812_DI_PIN); writePinLow(WS2812_DI_PIN); wait_us(100); //复位引脚避免首灯异常亮绿
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT( //Alphabet
