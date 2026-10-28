@@ -19,6 +19,9 @@
 #define BOOTMAGIC_LITE_ROW 0
 #define BOOTMAGIC_LITE_COLUMN 0
 
+/* 新版QMK编译灯亮白光，不受控制，是时序问题，可降GCC解决；也可试试 */
+// #define WS2812_T0H 200
+
 //#define FORCE_NKRO
 #define MIDI_ADVANCED
 #endif
