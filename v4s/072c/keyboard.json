@@ -108,14 +108,14 @@
                 ]
             }
         },
-			  "encoder": {
+        "encoder": {
             "right": {
-					      "enabled": true,
-					      "rotary": [
-					          {"pin_a": "C15", "pin_b": "F0", "resolution": 4}
-					      ]
+                "enabled": true,
+                "rotary": [
+                    {"pin_a": "C15", "pin_b": "F0", "resolution": 4}
+                ]
             }
-			  },
+        },
         "bootmagic": {
             "matrix": [4, 3]
         }

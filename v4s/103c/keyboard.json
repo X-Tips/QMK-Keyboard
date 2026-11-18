@@ -102,21 +102,21 @@
         "matrix_pins": {
             "right": {
                 "direct": [
-		            [null,  "B13", "B15", "A8",  "A15", "B3", "B4"],
-		            ["B11", "B10", "B12", "B14", "B5",  "B8", "B9"],
-		            ["B2",  "B1",  "B0",  "A4",  "A0",  "A1", "C13"],
-		            [null,  "A7",  "A6",  "A3",  null,  null, null]
+                    [null,  "B13", "B15", "A8",  "A15", "B3", "B4"],
+                    ["B11", "B10", "B12", "B14", "B5",  "B8", "B9"],
+                    ["B2",  "B1",  "B0",  "A4",  "A0",  "A1", "C13"],
+                    [null,  "A7",  "A6",  "A3",  null,  null, null]
                 ]
             }
         },
-			  "encoder": {
+        "encoder": {
             "right": {
-					      "enabled": true,
-					      "rotary": [
-					          {"pin_a": "C14", "pin_b": "C15", "resolution": 4}
-					      ]
+                "enabled": true,
+                "rotary": [
+                    {"pin_a": "C14", "pin_b": "C15", "resolution": 4}
+                ]
             }
-			  },
+        },
         "soft_serial_pin": "B6",
         "bootmagic": {
             "matrix": [4, 3]
