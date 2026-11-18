@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include <stdio.h>
 #include "leds.c"
 
 enum custom_keycodes {
@@ -12,33 +11,33 @@ void keyboard_pre_init_user(void) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT( // Alphabet
-        LT(6, KC_Q),     KC_W,            KC_E,            KC_R,            KC_T,            KC_Y,            KC_U,            KC_I,            KC_O,            KC_P,
-        KC_A,            KC_S,            KC_D,            LT(3, KC_F),     KC_G,            KC_H,            LT(4, KC_J),     KC_K,            KC_L,            KC_ENT,
-        LCTL_T(KC_Z),    LGUI_T(KC_X),    LALT_T(KC_C),    LT(1, KC_V),     LSFT_T(KC_B),    RSFT_T(KC_N),    LT(2, KC_M),     RALT_T(KC_SPC),  RGUI_T(KC_DEL),  RCTL_T(KC_BSPC)
+        LT(3, KC_Q),     KC_W,            KC_E,            KC_R,            KC_T,            KC_Y,            KC_U,            KC_I,            KC_O,            LT(4, KC_P),
+        KC_A,            KC_S,            KC_D,            KC_F,            KC_G,            KC_H,            KC_J,            KC_K,            KC_L,            KC_ENT,
+        LCTL_T(KC_Z),    LALT_T(KC_X),    LGUI_T(KC_C),    RSFT_T(KC_V),    LT(1, KC_B),     LT(2, KC_N),     LSFT_T(KC_M),    RGUI_T(KC_SPC),  RALT_T(KC_DEL),  RCTL_T(KC_BSPC)
     ),
 
     [1] = LAYOUT( // Numpad and Punctuation
-        KC_7,            KC_8,            KC_9,            KC_PDOT,         KC_PLUS,         KC_ASTR,         KC_DLR,          KC_COLN,         KC_PIPE,         KC_GRV,
-        KC_4,            KC_5,            KC_6,            KC_0,            KC_MINS,         KC_SLSH,         KC_HASH,         KC_LCBR,         KC_RCBR,         KC_SCLN,
-        KC_1,            KC_2,            KC_3,            TO(0),           KC_PENT,         KC_CAPS,         LGUI(KC_SPC),    KC_COMM,         KC_DOT,          CUT2END
+        KC_7,            KC_8,            KC_9,            KC_PDOT,         KC_PLUS,         KC_ASTR,         KC_AMPR,         KC_COLN,         KC_PIPE,         KC_CIRC,
+        KC_4,            KC_5,            KC_6,            KC_0,            KC_MINS,         KC_SLSH,         KC_EQL,          KC_LT,           KC_GT,           KC_UNDS,
+        KC_1,            KC_2,            KC_3,            KC_PENT,         TO(0),           LGUI(KC_SPC),    RSFT_T(KC_BSLS), RGUI_T(KC_COMM), RALT_T(KC_DOT),  RCTL_T(KC_SCLN)
     ),
 
     [2] = LAYOUT( // Punctuation and Arrow key
-        KC_TILD,         KC_PERC,         KC_UNDS,         KC_CIRC,         KC_LABK,         KC_RABK,         KC_HOME,         KC_UP,           KC_END,          KC_PGUP,
-        KC_AT,           KC_DQUO,         KC_EXLM,         KC_QUES,         KC_LPRN,         KC_RPRN,         KC_LEFT,         KC_DOWN,         KC_RGHT,         KC_PGDN,
-        LCTL_T(KC_LBRC), LGUI_T(KC_RBRC), LALT_T(KC_QUOT), KC_AMPR,         LSFT_T(KC_EQL),  KC_BSLS,         TO(0),           KC_ESC,          KC_TAB,          CUT2HOME
+        KC_TILD,         KC_PERC,         KC_EXLM,         KC_QUES,         KC_DLR,          KC_HASH,         KC_HOME,         KC_UP,           KC_END,          KC_PGUP,
+        KC_AT,           KC_DQUO,         KC_LPRN,         KC_RPRN,         KC_LCBR,         KC_RCBR,         KC_LEFT,         KC_DOWN,         KC_RGHT,         KC_PGDN,
+        LCTL_T(KC_GRV),  LALT_T(KC_QUOT), LGUI_T(KC_LBRC), LSFT_T(KC_RBRC), KC_CAPS,         TO(0),           KC_ESC,          KC_TAB,          CUT2END,         CUT2HOME
     ),
 
     [3] = LAYOUT( // Hotkeys
-        ALL_CUT,         ALL_COPY,        ALL_PASTE,       RCS(KC_1),       KC_VOLD,         KC_VOLU,         LGUI(KC_EQL),    LGUI(KC_UP),     LCTL(KC_PLUS),   LCTL(KC_TAB),
-        LCTL(KC_X),      LCTL(KC_C),      LCTL(KC_V),      TO(0),           KC_MPRV,         KC_MNXT,         LGUI(KC_ESC),    LGUI(KC_RGHT),   LCTL(KC_0),      C(S(KC_TAB)),
-        LALT(KC_Z),      LCTL(KC_Y),      C(A(KC_A)),      RCS(KC_O),       KC_MUTE,         KC_MPLY,         LGUI(KC_MINS),   LGUI(KC_DOWN),   LCTL(KC_MINS),   LALT(KC_TAB)
+        XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,
+        XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,
+        XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX
     ),
 
     [4] = LAYOUT( // Fn & Mouse & Media
-        KC_F7,           KC_F8,           KC_F9,           KC_F10,          KC_F11,          KC_F12,          KC_MS_WH_UP,     KC_MS_BTN1,      KC_MS_UP,        KC_MS_BTN2,
-        KC_F1,           KC_F2,           KC_F3,           KC_F4,           KC_F5,           KC_F6,           TO(0),           KC_MS_LEFT,      KC_MS_DOWN,      KC_MS_RIGHT,
-        KC_LCTL,         KC_LGUI,         KC_LALT,         XXXXXXX,         KC_LSFT,         XXXXXXX,         KC_MS_WH_DOWN,   KC_MS_BTN4,      KC_MS_BTN5,      KC_MS_BTN3
+        XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,
+        XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,
+        XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX
     ),
 
     [5] = LAYOUT(
@@ -47,22 +46,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX
     ),
 
-    [6] = LAYOUT( // Software hotkeys
-        TO(0),           MEH(KC_W),       MEH(KC_E),       MEH(KC_R),       MEH(KC_T),       MEH(KC_Y),       MEH(KC_U),       MEH(KC_I),       MEH(KC_O),       MEH(KC_P),
-        MEH(KC_A),       MEH(KC_S),       MEH(KC_D),       MEH(KC_F),       MEH(KC_G),       MEH(KC_H),       MEH(KC_J),       MEH(KC_K),       MEH(KC_L),       MEH(KC_ENT),
-        MEH(KC_Z),       MEH(KC_X),       MEH(KC_C),       MEH(KC_V),       MEH(KC_B),       MEH(KC_N),       MEH(KC_M),       MEH(KC_COMM),    MEH(KC_BSPC),    MO(7)
-    ),
-
-    [7] = LAYOUT( // KB Bootkey & Sys Reboot,Shutdown & Others
-        XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XTIPS,
-        XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         RGB_TOG,
-        KC_APP,          KC_PSCR,         KC_NUM,          KC_SCRL,         KC_PAUS,         KC_INS,          QK_BOOT,         MEH(KC_LBRC),    MEH(KC_RBRC),    TO(0)
-    ),
-
-    [8] = LAYOUT(
+    [6] = LAYOUT(
         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,
         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,
         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX
+    ),
+
+    [7] = LAYOUT( //自定义短语
+        HYPR(KC_Q),      HYPR(KC_W),      HYPR(KC_E),      HYPR(KC_R),      HYPR(KC_T),      HYPR(KC_Y),      HYPR(KC_U),      HYPR(KC_I),      HYPR(KC_O),      HYPR(KC_P),
+        HYPR(KC_A),      HYPR(KC_S),      HYPR(KC_D),      HYPR(KC_F),      HYPR(KC_G),      HYPR(KC_H),      HYPR(KC_J),      HYPR(KC_K),      HYPR(KC_L),      HYPR(KC_ENT),
+        HYPR(KC_Z),      HYPR(KC_X),      HYPR(KC_C),      HYPR(KC_V),      HYPR(KC_B),      HYPR(KC_N),      HYPR(KC_M),      HYPR(KC_COMM),   HYPR(KC_DOT),    HYPR(KC_BSPC)
+    ),
+
+    [8] = LAYOUT( //Apps Hotkeys
+        MEH(KC_Q),       MEH(KC_W),       MEH(KC_E),       MEH(KC_R),       MEH(KC_T),       MEH(KC_Y),       MEH(KC_U),       MEH(KC_I),       MEH(KC_O),       MEH(KC_P),
+        MEH(KC_A),       MEH(KC_S),       MEH(KC_D),       MEH(KC_F),       MEH(KC_G),       MEH(KC_H),       MEH(KC_J),       MEH(KC_K),       MEH(KC_L),       MEH(KC_ENT),
+        MEH(KC_Z),       MEH(KC_X),       MEH(KC_C),       MEH(KC_V),       MEH(KC_B),       MEH(KC_N),       MEH(KC_M),       MEH(KC_COMM),    MEH(KC_DOT),     MEH(KC_BSPC)
     )
 };
 
