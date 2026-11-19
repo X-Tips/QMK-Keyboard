@@ -23,8 +23,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [2] = LAYOUT( // Punctuation and Arrow key
-        KC_TILD,         KC_PERC,         KC_EXLM,         KC_QUES,         KC_DLR,          KC_HASH,         KC_HOME,         KC_UP,           KC_END,          KC_PGUP,
-        KC_AT,           KC_DQUO,         KC_LCBR,         KC_RCBR,         KC_LPRN,         KC_RPRN,         KC_LEFT,         KC_DOWN,         KC_RGHT,         KC_PGDN,
+        KC_TILD,         KC_PERC,         KC_LPRN,         KC_RPRN,         KC_DLR,          KC_HASH,         KC_HOME,         KC_UP,           KC_END,          KC_PGUP,
+        KC_AT,           KC_DQUO,         KC_LCBR,         KC_RCBR,         KC_EXLM,         KC_QUES,         KC_LEFT,         KC_DOWN,         KC_RGHT,         KC_PGDN,
         LCTL_T(KC_GRV),  LALT_T(KC_QUOT), LGUI_T(KC_LBRC), LSFT_T(KC_RBRC), KC_CAPS,         TO(0),           KC_ESC,          KC_TAB,          CUT2END,         CUT2HOME
     ),
 
